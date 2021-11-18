@@ -7,7 +7,7 @@ function Section({title, description, backgroundImg, leftBtnText, rightBtnText }
         <Wrap bgImage={backgroundImg}>
             <Fade bottom>
                 <ItemText>
-                    <h1>{title}</h1>
+                    <h1 className="item-text-title">{title}</h1>
                     <p>{description}</p>
                 </ItemText>
             </Fade>
@@ -52,6 +52,14 @@ const Wrap = styled.div`
 const ItemText=styled.div`
     padding-top: 15vh;
     text-align:center;
+
+    .item-text-title{
+        font-family: "Gotham Medium", sans-serif;
+        font-weight: 500;
+        line-height: 48px;
+        font-size: 45px;
+        padding-bottom: 1rem;
+    }
 `
 
 const Buttons = styled.div`
@@ -60,7 +68,9 @@ const Buttons = styled.div`
 const ButtonGroup = styled.div`
     display: flex;
     margin-bottom: 40px;
-
+    font-family: "Gotham Bold", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0px;
     @media only screen and (max-width: 650px) {
         flex-direction: column;
     }
@@ -78,7 +88,7 @@ const LeftButton = styled.div`
     border-radius: 100px;
     opacity: 0.85;
     text-transform: uppercase;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     margin:13px;
     

@@ -9,7 +9,7 @@ const Container = styled.div`
 
 function Home() {
     return (
-        <Container>
+      <Container>
             <Section 
               title="Model S"
               description="Order Online for Touchless Delivery"
@@ -63,3 +63,4 @@ function Home() {
 }
 
 export default Home
+
