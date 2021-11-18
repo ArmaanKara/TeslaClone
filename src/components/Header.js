@@ -104,7 +104,7 @@ const Menu = styled.div`
    }
 
    a:hover{
-        background-color: lightgray;
+        background-color: rgba(189, 195, 199, .5);
         border-radius: 100px;
         transition: 300ms;
     }
@@ -129,7 +129,7 @@ const RightMenu = styled.div`
     }
 
     a:hover{
-        background-color: lightgray;
+        background-color: rgba(189, 195, 199, .5);
         border-radius: 100px;
         transition: 300ms;
     }
@@ -175,8 +175,9 @@ const MenuNav = styled.div`
     }
 
     li:hover{
-        background-color: lightgray;
+        background-color: rgba(189, 195, 199, .2);
         border-radius: 100px;
+        transition: 300ms;
         
     }
 
