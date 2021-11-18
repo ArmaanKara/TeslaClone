@@ -1,42 +1,61 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
- import CloseIcon from '@material-ui/icons/Close';
+import CloseIcon from '@material-ui/icons/Close';
+import { selectProducts } from '../features/Products/ProductsSlice'
 
 function Header() {
+    const [menuStatus, setMenuStatus] = useState(false);
+    const products = useSelector(selectProducts)
+
     return (
         <Container>
             <a href="/">
                 <img src="/images/logo.svg" alt="tesla logo" />
             </a>
             <Menu>
-                <a href="/">Model S</a> 
-                <a href="/">Model 3</a> 
-                <a href="/">Model X</a> 
-                <a href="/">Model Y</a> 
-                <a href="/">Solar Roof</a>  
-                <a href="/">Solar Panel</a> 
+                {products && products.map((product, index) => 
+                  <a key={index} href="/">{product}</a>
+                )} 
             </Menu>
             <RightMenu>
                 <a href="/">Shop</a>
                 <a href="/">Account</a>
                 <a href="/">Menu</a>
-                <CustomMenuIcon >
+                <CustomMenuIcon onClick={() => setMenuStatus(true)}>
                     Menu
                 </CustomMenuIcon>
             </RightMenu>
-            <MenuNav>
-                <CloseWrapper>
+            <MenuNav show={menuStatus}>
+                <CloseWrapper onClick={() => setMenuStatus(false)}>
                     <CustomClose />
                 </CloseWrapper>
-                {/* <i className="fas fa-times" id="close-button"></i> */}
-                <li><a href="/">Model S</a></li>
-                <li><a href="/">Model 3</a></li>
-                <li><a href="/">Model X</a></li>
-                <li><a href="/">Model Y</a></li>
+                {products && products.map((product, index) => 
+                  <li><a key={index} href="/">{product}</a></li>
+                )} 
                 <li><a href="/">Existing Inventory</a></li>
                 <li><a href="/">Used Inventory</a></li>
                 <li><a href="/">Trade-in</a></li>
                 <li><a href="/">Test Drive</a></li>
+                <li><a href="/">Powerwall</a></li>
+                <li><a href="/">Commercial Energy</a></li>
+                <li><a href="/">Utilities</a></li>
+                <li><a href="/">Charging</a></li>
+                <li><a href="/">Find Us</a></li>
+                <li><a href="/">Support</a></li>
+                <li><a href="/">Support</a></li>
+                <li><a href="/">Investor Relations</a></li>
+                <li><a href="/">Shop</a></li>
+                <li><a href="/">Account</a></li>
+                <li><a href="/">
+                    More <i className="fas fa-chevron-right"></i>
+                </a></li>
+                <li><a href="/">
+                    United States
+                    <br/>
+                    <p>English</p>
+                </a></li>
+
             </MenuNav>
         </Container>
     )
@@ -107,13 +126,8 @@ const MenuNav = styled.div`
     flex-direction: column;
     text-align: start;
     color: #181B21;
-    
-    /* #close-button{
-       display: flex;
-       justify-content: flex-end;
-       font-size: 1.2rem;
-       opacity: 0.8;
-    } */
+    transform: ${props => props.show ? 'transalteX(0)' : 'translateX(100%)'};
+    transition: transform 0.4s ease-in-out;
 
     li{
         padding: 15px 15px;
@@ -126,6 +140,12 @@ const MenuNav = styled.div`
         background-color: lightgray;
         border-radius: 100px;
         
+    }
+
+    .fa-chevron-right{
+        display: inline-flex;
+        margin-left: 11rem;
+        font-size: smaller;
     }
 `
 

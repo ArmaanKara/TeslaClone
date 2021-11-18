@@ -25,7 +25,7 @@ function Section({title, description, backgroundImg, leftBtnText, rightBtnText }
                 </ButtonGroup>
                 </Fade>
                 <DownArrow>
-                <i class="fas fa-chevron-down"></i>
+                <i className="fas fa-chevron-down"></i>
                 </DownArrow>
                 {/* <DownArrow src={"/images/down-arrow.svg"}/> */}
             </Buttons>
