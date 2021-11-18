@@ -11,6 +11,11 @@ body{
   overflow-x: hidden;
 }
 
+/* Removes all underlines from a tags because by default they have an underline to let you know they link to something */
+a{
+  text-decoration: none;  
+}
+
 @keyframes animateDown{
   /* Goes back to starting point */
   0%, 20%, 50%, 80%, 100%{

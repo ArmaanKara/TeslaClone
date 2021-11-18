@@ -1,14 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
+import Fade from 'react-reveal/Fade'
 
 function Section({title, description, backgroundImg, leftBtnText, rightBtnText }) {
     return (
         <Wrap bgImage={backgroundImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p>{description}</p>
-            </ItemText>
-            <Buttons>                
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p>{description}</p>
+                </ItemText>
+            </Fade>
+            <Buttons>     
+                <Fade Bottom>           
                 <ButtonGroup>
                     <LeftButton>
                         {leftBtnText}
@@ -19,7 +23,11 @@ function Section({title, description, backgroundImg, leftBtnText, rightBtnText }
                         </RightButton>
                     }
                 </ButtonGroup>
-                <DownArrow src={"/images/down-arrow.svg"}/>
+                </Fade>
+                <DownArrow>
+                <i class="fas fa-chevron-down"></i>
+                </DownArrow>
+                {/* <DownArrow src={"/images/down-arrow.svg"}/> */}
             </Buttons>
         </Wrap>
     )
@@ -28,6 +36,7 @@ function Section({title, description, backgroundImg, leftBtnText, rightBtnText }
 export default Section;
 
 const Wrap = styled.div`
+    z-index: 0;
     width: 100vw;
     height: 100vh;
     background-image: url('/images/model-s.jpg');
@@ -81,8 +90,10 @@ const RightButton = styled(LeftButton)`
     color:rgba(23,26,32,0.8);
 `
 
-const DownArrow = styled.img`
-    height: 40px;
+const DownArrow = styled.div`
+    height: 60px;
     animation: animateDown infinite 1.5s;
     overflow-x: hidden; //use because down arrow has overflow from animation//
+    margin-bottom: 40px;
+    font-size: 2rem;
 `
